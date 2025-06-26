@@ -25,10 +25,10 @@ const app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
-// app.use(cors());
-app.use(cors({
-  origin: 'https://empleados-front-end.vercel.app'
-}));
+app.use(cors());
+// app.use(cors({
+//   origin: 'https://empleados-front-end.vercel.app'
+// }));
 
 app.use("/api", empleadoRutas);
 // Puerto de escucha _ habilitamos el puerto 4000
