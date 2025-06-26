@@ -25,7 +25,11 @@ const app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
-app.use(cors());
+// app.use(cors());
+app.use(cors({
+  origin: 'https://empleados-front-end.vercel.app'
+}));
+
 app.use("/api", empleadoRutas);
 // Puerto de escucha _ habilitamos el puerto 4000
 const PORT = process.env.PORT || 4000;
@@ -44,3 +48,4 @@ app.use((err, req, res, next) => {
   if (!err.statusCode) err.statusCode = 500;
   res.status(err.statusCode).send(err.message || "Error interno del servidor");
 });
+
